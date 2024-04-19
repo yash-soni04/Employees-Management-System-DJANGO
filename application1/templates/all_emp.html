@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>View all Employee</title>
+    <link rel="shortcut icon" href="../static/Images/crm.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/CSS/style.css">
+
+</head>
+
+<body>
+    <header class="col-md-12">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="{% url 'about_us' %}">About us</a>
+                        <a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>
+            View All Employees
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-people-fill"
+                viewBox="0 0 16 16">
+                <path
+                    d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+            </svg>
+        </h1>
+        <hr>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Employee_Image</th>
+                    <th scope="col">Employee_ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Designation</th>
+
+                </tr>
+            </thead>
+            {% for emp in emps %}
+            <tbody>
+                <tr>
+                    <th scope="row">{{emp.employee_image}}</th>
+                    <td>{{emp.employee_id}}</td>
+                    <td>{{emp.first_name}}</td>0
+                    <td>{{emp.second_name}}</td>
+                    <td>{{emp.phone_num}}</td>
+                    <td>{{emp.email}}</td>
+                    <td>{{emp.salary}}</td>
+                    <td>{{emp.design}}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+        <hr>
+        <a href="/add_emp" class="btn btn-primary" role="button">Add Employees</a>
+        <a href="/remove_emp" class="btn btn-primary" role="button">Remove Employees</a>
+        <a href="/filter_emp" class="btn btn-primary" role="button">Filter Employees</a>
+        <a href="/admin" class="btn btn-primary" role="button">Admin</a>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
